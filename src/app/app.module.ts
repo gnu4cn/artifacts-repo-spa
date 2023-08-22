@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { ArtifactComponent } from './artifact/artifact.component';
 import { AffectedFileComponent } from './affected-file/affected-file.component';
+import { ReleaseComponent } from './release/release.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChangelogComponent,
     ArtifactComponent,
-    AffectedFileComponent
+    AffectedFileComponent,
+    ReleaseComponent
   ],
   imports: [
     BrowserModule,

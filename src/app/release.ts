@@ -1,6 +1,6 @@
 import { Artifact } from './artifact';
 import { AffectedFile } from './affected_file';
-import { Changelog } from '../changelog';
+import { Changelog } from './changelog';
 
 interface Release {
     id: number;
