@@ -1,1 +1,3 @@
-<p>changelog works!</p>
+<li *ngIf="changelog">
+	<code>{{changelog.commit_id}}</code> <i>{{changelog.commit_comment}}</i> - <em>by {{changelog.commit_by}}</em>
+</li>

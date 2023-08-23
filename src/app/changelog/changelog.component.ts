@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Changelog } from '../changelog';
 
 @Component({
@@ -8,5 +8,5 @@ import { Changelog } from '../changelog';
 })
 
 export class ChangelogComponent {
-
+    @Input() changelog?: Changelog;
 }

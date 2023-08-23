@@ -1,1 +1,11 @@
-<p>artifact works!</p>
+<li *ngIf="artifact && artifact.url">
+  <mat-icon fontIcon="done"></mat-icon>
+  <button mat-button color="primary">{{artifact.defconfig}}</button>
+  <a href="{{artifact.url}}" style="float: right;">
+    <small><mat-icon fontIcon="folder_zip"></mat-icon> {{artifact.url.split("/").pop()}} ({{ artifact.filesize | filesize }}) </small>
+  </a>
+</li>
+<li *ngIf="artifact && !artifact.url">
+  <mat-icon fontIcon="close"></mat-icon>
+  <button mat-button color="warn">{{artifact.defconfig}}</button> Build FAILED!<button mat-button (click)="openDialog()">Open dialog</button>
+</li>
