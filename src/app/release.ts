@@ -4,7 +4,9 @@ import { Changelog } from './changelog';
 
 interface Release {
     id: number;
+    org: string;
     repo: string;
+    release_channel: string;
     diffs_url: string;
     released_at: string;
 }

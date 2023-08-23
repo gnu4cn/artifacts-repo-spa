@@ -1,8 +1,8 @@
 export interface Artifact {
     id: number;
     defconfig: string;
-    filename: string;
+    url: string;
     filesize: number;
-    build_log_path: string;
+    build_log_url: string;
     release_id: number;
 }
