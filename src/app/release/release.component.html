@@ -12,19 +12,22 @@
     <mat-list role="list" *ngIf="rel_dto.affected_files.length>0">
       <app-affected-file *ngFor="let affected_file of rel_dto.affected_files" [affected_file]="affected_file"></app-affected-file>
     </mat-list>
-    <mat-card-title>Artifacts</mat-card-title>
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Build artifacts
-          </mat-panel-title>
-          <mat-panel-description>The artifacts list.</mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-list role="list" *ngIf="rel_dto.artifacts.length>0">
-          <app-artifact *ngFor="let artifact of rel_dto.artifacts" [artifact]="artifact"></app-artifact>
-        </mat-list>
-      </mat-expansion-panel>
-    </mat-accordion>
+    <mat-card-title *ngIf="rel_dto.release.diffs_url">Check diffs: <a mat-button href="{{rel_dto.release.diffs_url}}">
+        {{getShortDiffsUrl(rel_dto.release.diffs_url)}}
+      </a></mat-card-title>
+      <mat-card-title>Artifacts</mat-card-title>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Build Result
+            </mat-panel-title>
+            <mat-panel-description>The artifacts list.</mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list role="list" *ngIf="rel_dto.artifacts.length>0">
+            <app-artifact *ngFor="let artifact of rel_dto.artifacts" [artifact]="artifact"></app-artifact>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
   </mat-card-content>
 </mat-card>

@@ -1,5 +1,1 @@
-<mat-list *ngIf="releases.length>0">
-  <mat-list-item *ngFor="let rel of releases">
-    <app-release [rel_dto]="rel"></app-release>
-  </mat-list-item>
-</mat-list>
+<app-release *ngFor="let rel of releases" [rel_dto]="rel"></app-release>
