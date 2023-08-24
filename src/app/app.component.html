@@ -1,2 +1,5 @@
-<h1>{{title}}<h1>
-<router-outlet></router-outlet>
+<mat-list *ngIf="releases.length>0">
+  <mat-list-item *ngFor="let rel of releases">
+    <app-release [rel_dto]="rel"></app-release>
+  </mat-list-item>
+</mat-list>

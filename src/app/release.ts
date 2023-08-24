@@ -2,7 +2,7 @@ import { Artifact } from './artifact';
 import { AffectedFile } from './affected_file';
 import { Changelog } from './changelog';
 
-interface Release {
+export interface Release {
     id: number;
     org: string;
     repo: string;
@@ -16,4 +16,9 @@ export interface ReleaseDTO {
     changelogs: Changelog[];
     artifacts: Artifact[];
     affected_files: AffectedFile[];
+}
+
+export interface ReleaseDTOJson {
+    message: string;
+    data: ReleaseDTO[];
 }

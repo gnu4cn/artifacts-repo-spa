@@ -46,12 +46,12 @@ export class BuildLogDialog implements OnInit {
         private sanitizer: DomSanitizer
     ){}
 
-        ngOnInit() {
-            if (this.build_log_url) {
-                this.build_log_title = this.build_log_url.split('/').pop();
-                this.http.get(this.build_log_url, {responseType:'text'}).subscribe(result => {
-                    this.build_log = this.sanitizer.bypassSecurityTrustHtml(result);
-                });
-            }
+    ngOnInit() {
+        if (this.build_log_url) {
+            this.build_log_title = this.build_log_url.split('/').pop();
+            this.http.get(this.build_log_url, {responseType:'text'}).subscribe(result => {
+                this.build_log = this.sanitizer.bypassSecurityTrustHtml(result);
+            });
         }
+    }
 }

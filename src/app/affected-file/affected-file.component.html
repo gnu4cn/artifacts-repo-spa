@@ -1,1 +1,3 @@
-<p>affected-file works!</p>
+<mat-list-item *ngIf="affected_file">
+	{{affected_file.file_edit_type}} <i>{{affected_file.file_path}}</i>
+</mat-list-item>

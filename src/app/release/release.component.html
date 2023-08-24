@@ -1,1 +1,30 @@
-<p>release works!</p>
+<mat-card *ngIf="rel_dto">
+  <mat-card-header>
+    <mat-card-title>{{rel_dto.release.org}}/{{rel_dto.release.repo}}</mat-card-title>
+    <mat-card-subtitle>{{rel_dto.release.released_at}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-title>Changelogs</mat-card-title>
+    <mat-list role="list" *ngIf="rel_dto.changelogs.length>0">
+      <app-changelog *ngFor="let changelog of rel_dto.changelogs" [changelog]="changelog"></app-changelog>
+    </mat-list>
+    <mat-card-title>Affected files</mat-card-title>
+    <mat-list role="list" *ngIf="rel_dto.affected_files.length>0">
+      <app-affected-file *ngFor="let affected_file of rel_dto.affected_files" [affected_file]="affected_file"></app-affected-file>
+    </mat-list>
+    <mat-card-title>Artifacts</mat-card-title>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Build artifacts
+          </mat-panel-title>
+          <mat-panel-description>The artifacts list.</mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list role="list" *ngIf="rel_dto.artifacts.length>0">
+          <app-artifact *ngFor="let artifact of rel_dto.artifacts" [artifact]="artifact"></app-artifact>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

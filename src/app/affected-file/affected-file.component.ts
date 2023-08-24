@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AffectedFile } from '../affected_file';
 
 @Component({
@@ -7,5 +7,5 @@ import { AffectedFile } from '../affected_file';
   styleUrls: ['./affected-file.component.css']
 })
 export class AffectedFileComponent {
-
+    @Input() affected_file?: AffectedFile;
 }
