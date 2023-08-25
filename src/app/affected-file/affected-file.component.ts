@@ -7,5 +7,5 @@ import { AffectedFile } from '../affected_file';
   styleUrls: ['./affected-file.component.css']
 })
 export class AffectedFileComponent {
-    @Input() affected_file?: AffectedFile;
+    @Input() affected_files?: AffectedFile[];
 }

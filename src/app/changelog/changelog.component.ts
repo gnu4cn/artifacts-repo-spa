@@ -8,5 +8,5 @@ import { Changelog } from '../changelog';
 })
 
 export class ChangelogComponent {
-    @Input() changelog?: Changelog;
+    @Input() changelogs?: Changelog[];
 }

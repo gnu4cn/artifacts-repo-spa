@@ -13,16 +13,15 @@ import { Artifact } from '../artifact';
     styleUrls: ['./artifact.component.css']
 })
 export class ArtifactComponent implements OnInit {
-    @Input() artifact?: Artifact;
+    @Input() artifacts?: Artifact[];
 
     constructor(public dialog: MatDialog) {}
 
-    openBuildLogDialog() {
+    openBuildLogDialog(build_log_url: string) {
         const buildLogDialog = this.dialog.open(BuildLogDialog);
         let dialog = buildLogDialog.componentInstance;
 
-        if (this.artifact)
-            dialog.build_log_url = this.artifact.build_log_url;
+        dialog.build_log_url = build_log_url;
 
         buildLogDialog.afterClosed().subscribe(result => {});
     }

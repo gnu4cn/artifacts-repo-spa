@@ -1,3 +1,5 @@
-<mat-list-item *ngIf="affected_file">
-	{{affected_file.file_edit_type}} <i>{{affected_file.file_path}}</i>
-</mat-list-item>
+<mat-list role="list" *ngIf="affected_files && affected_files.length>0">
+  <mat-list-item *ngFor="let affected_file in affected_files">
+    {{affected_file.file_edit_type}} <i>{{affected_file.file_path}}</i>
+  </mat-list-item>
+</mat-list>
