@@ -20,6 +20,7 @@ import { ChangelogComponent } from './changelog/changelog.component';
 import { ArtifactComponent } from './artifact/artifact.component';
 import { AffectedFileComponent } from './affected-file/affected-file.component';
 import { ReleaseComponent } from './release/release.component';
+import { LongFilenamePipe } from './long-filename.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReleaseComponent } from './release/release.component';
     ChangelogComponent,
     ArtifactComponent,
     AffectedFileComponent,
-    ReleaseComponent
+    ReleaseComponent,
+    LongFilenamePipe
   ],
   imports: [
     BrowserModule,
