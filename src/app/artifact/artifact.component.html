@@ -12,7 +12,8 @@
           <mat-icon fontIcon="done"></mat-icon>
           <button mat-button color="primary">{{artifact.defconfig}}</button>
           <a href="{{artifact.url}}" style="float: right;">
-            <small><mat-icon fontIcon="folder_zip"></mat-icon> {{artifact.url.split("/").pop()}} ({{ artifact.filesize | filesize }}) </small>
+            <small><mat-icon fontIcon="folder_zip"></mat-icon>
+              {{ artifact.url.split('/').pop() | longFilename:30 }} ({{ artifact.filesize | filesize }}) </small>
           </a>
         </div>
         <div *ngIf="!artifact.url">

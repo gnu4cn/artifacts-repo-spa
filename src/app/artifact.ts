@@ -1,3 +1,4 @@
+import { Repository } from './repository';
 import { Release } from './release';
 import { Changelog } from './changelog';
 import { AffectedFile } from './affected_file';
@@ -12,6 +13,7 @@ export interface Artifact {
 }
 
 export interface ArtifactDTO {
+    repository: Repository;
     artifact: Artifact;
     release: Release;
     changelogs: Changelog[];

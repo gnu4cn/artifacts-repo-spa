@@ -1,6 +1,6 @@
 <mat-card *ngIf="rel_dto">
   <mat-card-header>
-    <mat-card-title>{{rel_dto.release.org}}/{{rel_dto.release.repo}}</mat-card-title>
+    <mat-card-title>{{rel_dto.repository.org}}/{{rel_dto.repository.repo}}</mat-card-title>
     <mat-card-subtitle>{{rel_dto.release.released_at}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -8,7 +8,7 @@
     <app-changelog [changelogs]="rel_dto.changelogs"></app-changelog>
     <mat-card-title>Affected files</mat-card-title>
     <app-affected-file [affected_files]="rel_dto.affected_files"></app-affected-file>
-    <mat-card-title *ngIf="rel_dto.release.diffs_url">Check diffs: <a mat-button href="{{rel_dto.release.diffs_url}}">
+    <mat-card-title *ngIf="rel_dto.release.diffs_url">Check diffs: <a mat-button href="{{rel_dto.release.diffs_url}}" target="_blank">
         {{getShortDiffsUrl(rel_dto.release.diffs_url)}}</a>
     </mat-card-title>
     <mat-card-title>Artifacts</mat-card-title>

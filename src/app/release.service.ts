@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { ReleaseDTOJson } from './release';
+import { ReleaseResp } from './release';
 
 @Injectable({
     providedIn: 'root'
@@ -11,14 +11,14 @@ import { ReleaseDTOJson } from './release';
 export class ReleaseService {
     constructor(
         private http: HttpClient,
-    ) { }
+    ) {}
 
-    getReleases(): Observable<ReleaseDTOJson> {
+    getReleases(): Observable<ReleaseResp> {
         let releases_url = 'https://dl.senscomm.com/api/release';
-        return this.http.get<ReleaseDTOJson>(releases_url)
+        return this.http.get<ReleaseResp>(releases_url)
         .pipe(
             tap(_ => this.log('fetched releases')),
-            catchError(this.handleError<ReleaseDTOJson>('getHeroes'))
+            catchError(this.handleError<ReleaseResp>('getReleases'))
         );
     }
 
