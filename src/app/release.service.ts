@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { ReleaseResp } from './release';
+import { environment } from '../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,7 @@ export class ReleaseService {
     ) {}
 
     getReleases(): Observable<ReleaseResp> {
-        let releases_url = 'https://dl.senscomm.com/api/release';
+        let releases_url = environment.API_ENDPOINT + '/release';
         return this.http.get<ReleaseResp>(releases_url)
         .pipe(
             tap(_ => this.log('fetched releases')),

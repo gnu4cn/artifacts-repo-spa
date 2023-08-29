@@ -9,6 +9,7 @@ export interface Artifact {
     url: string;
     filesize: number;
     build_log_url: string;
+    repository_id: number;
     release_id: number;
 }
 

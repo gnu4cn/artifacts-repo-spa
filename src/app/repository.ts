@@ -3,4 +3,3 @@ export interface Repository {
     org: string;
     repo: string;
 }
-
