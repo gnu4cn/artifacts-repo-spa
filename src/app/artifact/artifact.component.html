@@ -11,15 +11,15 @@
         <div *ngIf="artifact.url">
           <mat-icon fontIcon="done"></mat-icon>
           <button mat-button color="primary">{{artifact.defconfig}}</button>
-          <a href="{{artifact.url}}" style="float: right;">
-            <small><mat-icon fontIcon="folder_zip"></mat-icon>
-              {{ artifact.url.split('/').pop() | longFilename:30 }} ({{ artifact.filesize | filesize }}) </small>
-          </a>
+            <small style="float: right;"><mat-icon fontIcon="folder_zip"></mat-icon>
+              <a href="{{artifact.url}}">{{ artifact.url.split('/').pop() | longFilename:30 }}</a>
+              ({{ artifact.filesize | filesize }})
+            </small>
         </div>
         <div *ngIf="!artifact.url">
           <mat-icon fontIcon="close"></mat-icon>
           <button mat-button color="warn">{{artifact.defconfig}}</button> Build FAILED!
-          <button mat-button (click)="openBuildLogDialog(artifact.build_log_url)">Check build log</button>
+          <button mat-stroked-button color="warn" (click)="openBuildLogDialog(artifact.build_log_url)" style="float: right;">Check build log</button>
         </div>
       </mat-list-item>
     </mat-list>

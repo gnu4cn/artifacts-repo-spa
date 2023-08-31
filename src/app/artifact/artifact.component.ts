@@ -18,7 +18,10 @@ export class ArtifactComponent implements OnInit {
     constructor(public dialog: MatDialog) {}
 
     openBuildLogDialog(build_log_url: string) {
-        const buildLogDialog = this.dialog.open(BuildLogDialog);
+        const buildLogDialog = this.dialog.open(BuildLogDialog, {
+            width: '960px',
+            height: '720px',
+        });
         let dialog = buildLogDialog.componentInstance;
 
         dialog.build_log_url = build_log_url;
@@ -34,6 +37,20 @@ export class ArtifactComponent implements OnInit {
     templateUrl: './build-log-dialog.html',
     standalone: true,
     imports: [MatDialogModule, MatButtonModule],
+    styles: [`
+        ::-webkit-scrollbar:vertical {
+            width: 10px;
+            background: #aaa;
+        }
+        .build-log {
+            background-color: black;
+            color: white;
+            font-size: medium;
+            font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+            scrollbar-width: thin;
+            display: inline-block;
+            width: 100%;
+        }`]
 })
 export class BuildLogDialog implements OnInit {
     @Input() build_log_url?: string;
