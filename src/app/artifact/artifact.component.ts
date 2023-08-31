@@ -45,7 +45,7 @@ export class ArtifactComponent implements OnInit {
         .build-log {
             background-color: black;
             color: white;
-            font-size: medium;
+            font-size: 1em;
             font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
             scrollbar-width: thin;
             display: inline-block;
@@ -65,7 +65,9 @@ export class BuildLogDialog implements OnInit {
     ngOnInit() {
         if (this.build_log_url) {
             this.build_log_title = this.build_log_url.split('/').pop();
-            this.http.get(this.build_log_url, {responseType:'text'}).subscribe(result => {
+
+            this.http.get(this.build_log_url, {responseType:'text'})
+            .subscribe(result => {
                 this.build_log = this.sanitizer.bypassSecurityTrustHtml(result);
             });
         }

@@ -22,6 +22,7 @@ import { ArtifactComponent } from './artifact/artifact.component';
 import { AffectedFileComponent } from './affected-file/affected-file.component';
 import { ReleaseComponent } from './release/release.component';
 import { LongFilenamePipe } from './long-filename.pipe';
+import { ReleaseOverviewComponent } from './release-overview/release-overview.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LongFilenamePipe } from './long-filename.pipe';
     ArtifactComponent,
     AffectedFileComponent,
     ReleaseComponent,
-    LongFilenamePipe
+    LongFilenamePipe,
+    ReleaseOverviewComponent
   ],
   imports: [
     BrowserModule,
