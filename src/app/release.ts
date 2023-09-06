@@ -19,7 +19,7 @@ export interface ReleaseDTO {
     affected_files: AffectedFile[];
 }
 
-export interface ReleaseResp {
+export interface ReleasesDTO {
     message: string;
     data: ReleaseDTO[];
 }

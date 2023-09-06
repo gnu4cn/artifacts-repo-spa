@@ -23,6 +23,7 @@ import { AffectedFileComponent } from './affected-file/affected-file.component';
 import { ReleaseComponent } from './release/release.component';
 import { LongFilenamePipe } from './long-filename.pipe';
 import { ReleaseOverviewComponent } from './release-overview/release-overview.component';
+import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReleaseOverviewComponent } from './release-overview/release-overview.co
     AffectedFileComponent,
     ReleaseComponent,
     LongFilenamePipe,
-    ReleaseOverviewComponent
+    ReleaseOverviewComponent,
+    BreadCrumbComponent
   ],
   imports: [
     BrowserModule,

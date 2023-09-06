@@ -3,3 +3,6 @@ export interface Repository {
     org: string;
     repo: string;
 }
+
+export interface RepositoryDTO {
+}

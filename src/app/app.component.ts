@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReleaseService } from './release.service';
 import { ReleaseDTO } from './release';
 import { ReleaseComponent } from './release/release.component';
+import Utils from './utils';
 
 @Component({
     selector: 'app-root',
@@ -15,9 +16,9 @@ export class AppComponent implements OnInit {
     constructor(private releaseService: ReleaseService) {}
 
     ngOnInit() {
-        this.releaseService.getReleases().subscribe(res => {
+
+        this.releaseService.getReleasesAtDate(Utils.formatDate()).subscribe(res => {
             this.releases = res.data;
-            console.log(this.releases)
         });
     }
 }

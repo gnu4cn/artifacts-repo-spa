@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    WEB_HOST: 'http://localhost,
-    API_ENDPOINT: 'http:://localhost:20080/api'
+    WEB_HOST: 'https://dl.senscomm.com',
+    API_ENDPOINT: 'https://dl.senscomm.com/api'
 };
