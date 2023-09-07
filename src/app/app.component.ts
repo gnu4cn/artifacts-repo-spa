@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ReleaseService } from './release.service';
-import { ReleaseDTO } from './release';
-import { ReleaseComponent } from './release/release.component';
+import { RepositoryService } from './repository.service';
+
 import Utils from './utils';
+import { ReleaseDTO } from './release';
+import { RepositoryBriefDTO } from './repository';
 
 @Component({
     selector: 'app-root',
@@ -12,13 +14,23 @@ import Utils from './utils';
 })
 export class AppComponent implements OnInit {
     releases: ReleaseDTO[] = [];
+    repositories: RepositoryBriefDTO[] = [];
 
-    constructor(private releaseService: ReleaseService) {}
+    constructor(
+        private releaseService: ReleaseService,
+        private repositoryService: RepositoryService,
+    ) {}
 
     ngOnInit() {
-
-        this.releaseService.getReleasesAtDate(Utils.formatDate()).subscribe(res => {
+        this.releaseService.getReleasesAtDate(Utils.formatDate())
+        .subscribe(res => {
             this.releases = res.data;
+        });
+
+        this.repositoryService.getRepositoriesBrief()
+        .subscribe(res => {
+            this.repositories = res.data;
+            console.log(this.repositories);
         });
     }
 }

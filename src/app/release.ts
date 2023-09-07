@@ -23,3 +23,8 @@ export interface ReleasesDTO {
     message: string;
     data: ReleaseDTO[];
 }
+
+export interface ReleaseChannelDTO {
+    channel: string;
+    count: number;
+}

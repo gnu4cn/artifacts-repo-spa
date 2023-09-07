@@ -1,0 +1,33 @@
+<mat-card *ngIf="rel_brief_dto">
+  <mat-card-header>
+    <mat-card-subtitle>
+      {{rel_brief_dto.repo.org}}
+    </mat-card-subtitle>
+    <mat-card-title>
+      {{rel_brief_dto.repo.repo}}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-subtitle>
+      {{ rel_brief_dto.release_channels.length > 1 ? 'Repository release channels' : 'Repository release channel' }}
+    </mat-card-subtitle>
+    <div class="channels-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="5px">
+      <a mat-stroked-button
+         *ngFor="let ch of rel_brief_dto.release_channels" matBadge="{{ch.count}}" matBadgeOverlap="true">
+        {{ ch.channel }}
+      </a>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-subtitle>
+      {{ rel_brief_dto.defconfigs.length > 1 ? 'Repository defconfigs' : 'Repository defconfig' }}
+    </mat-card-subtitle>
+    <div class="defconfigs-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="5px">
+      <a mat-stroked-button
+         *ngFor="let conf of rel_brief_dto.defconfigs" matBadge="{{conf.count}}" matBadgeOverlap="true">
+        {{ conf.defconfig }}
+      </a>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-datepicker [dateClass]="dateClass"></mat-datepicker>
+  </mat-card-content>
+</mat-card>

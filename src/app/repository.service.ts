@@ -1,34 +1,41 @@
 import { Injectable } from '@angular/core';
+
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { ReleasesDTO } from './release';
 import { environment } from '../environments/environment';
+import {
+    RepositoryBriefDTOResponse,
+    RepositoriesBriefDTOResponse
+} from './repository';
+
 
 @Injectable({
     providedIn: 'root'
 })
-export class ReleaseService {
+export class RepositoryService {
     constructor(private http: HttpClient) {}
 
-    getReleases(): Observable<ReleasesDTO> {
-        let url = environment.API_ENDPOINT + '/release';
-        return this.http.get<ReleasesDTO>(url)
+    getRepositoriesBrief(): Observable<RepositoriesBriefDTOResponse> {
+        let url = environment.API_ENDPOINT + '/repository/brief';
+        return this.http.get<RepositoriesBriefDTOResponse>(url)
         .pipe(
-            tap(_ => this.log('Fetched all the releases.')),
-            catchError(this.handleError<ReleasesDTO>('getReleases'))
+            tap(_ => this.log('Fetched all the Repositories\' brief.')),
+            catchError(this.handleError<RepositoriesBriefDTOResponse>('getRepositoriesBrief'))
         );
+
     }
 
-    getReleasesAtDate(date: string): Observable<ReleasesDTO> {
-        let url = `${environment.API_ENDPOINT}/release/date/${date}`;
+    getRepositoryBrief(repo_id: number): Observable<RepositoryBriefDTOResponse> {
+        let url = `${environment.API_ENDPOINT}/repository/brief/${repo_id}`;
 
-        return this.http.get<ReleasesDTO>(url)
+        return this.http.get<RepositoryBriefDTOResponse>(url)
         .pipe(
-            tap(_ => this.log('Fetched releases at specified date.')),
-            catchError(this.handleError<ReleasesDTO>('getReleasesAtDate'))
+            tap(_ => this.log(`Fetched the Repository with id ${repo_id}'s brief.`)),
+            catchError(this.handleError<RepositoryBriefDTOResponse>('getRepositoryBrief'))
         );
+
     }
 
     /**

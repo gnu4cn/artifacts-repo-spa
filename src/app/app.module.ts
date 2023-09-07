@@ -4,12 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {NgxFilesizeModule} from 'ngx-filesize';
@@ -24,6 +29,7 @@ import { ReleaseComponent } from './release/release.component';
 import { LongFilenamePipe } from './long-filename.pipe';
 import { ReleaseOverviewComponent } from './release-overview/release-overview.component';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
+import { RepositoryBriefComponent } from './repository-brief/repository-brief.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +40,20 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
     ReleaseComponent,
     LongFilenamePipe,
     ReleaseOverviewComponent,
-    BreadCrumbComponent
+    BreadCrumbComponent,
+    RepositoryBriefComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
     MatIconModule,
     FlexLayoutModule,
     NgxFilesizeModule,
+    MatBadgeModule,
     HttpClientModule,
     MatDialogModule,
     MatExpansionModule,
@@ -50,7 +62,9 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
     MatCardModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+      MatDatepickerModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

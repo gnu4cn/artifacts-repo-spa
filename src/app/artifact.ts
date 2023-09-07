@@ -20,3 +20,8 @@ export interface ArtifactDTO {
     changelogs: Changelog[];
     affected_files: AffectedFile[];
 }
+
+export interface DefconfigDTO {
+    defconfig: string;
+    count: number;
+}

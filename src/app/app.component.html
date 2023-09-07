@@ -1,8 +1,9 @@
-<div class="middle-container" fxLayout="row" fxLayoutAlign="center">
-  <div class="release-list-container" fxLayout="column" fxLayoutGap="20px" fxLayoutWrap fxFlex="65%">
+<div class="middle-container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
+  <div class="release-list-container" fxLayout="column" fxLayoutGap="20px" fxLayoutWrap fxFlex="65">
     <h2>{{ releases.length > 1 ? 'Builds of the day' : 'Build of the day' }}</h2>
     <app-release *ngFor="let rel of releases" [rel_dto]="rel"></app-release>
   </div>
-  <div class="repo-list-container" fxLayout="column" fxLayoutGap="20px" fxLayoutWrap fxFlex="35%">
+  <div class="repo-list-container" fxLayout="column" fxLayoutGap="20px" fxLayoutWrap fxFlex="32">
+    <app-repository-brief *ngFor="let repo of repositories" [rel_brief_dto]="repo"></app-repository-brief>
   </div>
 </div>
