@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     repositories: RepositoryBriefDTO[] = [];
     selectedDate: Date = new Date();
     daysReleased: string[] = [];
+    dayDisplayed: string = 'today';
 
     constructor(
         private releaseService: ReleaseService,
@@ -45,6 +46,8 @@ export class AppComponent implements OnInit {
         });
 
         this.selectedDate = (ev as Date);
+        this.dayDisplayed = (ev as Date)
+        .toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' });
     }
 
     ngOnInit() {

@@ -7,7 +7,9 @@
     </mat-calendar>
   </div>
   <div class="right-column" fxLayout="column" fxLayoutGap="20px" fxFlex="65">
-    <h2>{{ releases.length > 1 ? 'Builds of the day' : 'Build of the day' }}</h2>
+    <h2>{{ releases.length > 1 ? 'Builds of the day' : 'Build of the day' }}
+      ({{ dayDisplayed }})
+    </h2>
     <app-release *ngFor="let rel of releases" [rel_dto]="rel"></app-release>
   </div>
 </div>
