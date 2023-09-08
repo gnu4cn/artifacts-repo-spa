@@ -33,14 +33,18 @@ export class AppComponent implements OnInit {
         const index = this.daysReleased
         .findIndex(x => new Date(x).toLocaleDateString() === cellDate.toLocaleDateString());
 
-        if (view === 'month') {
-            return (cellDate.getDate() === 20) ? 'date-released' : '';
-        }
+        return (index > -1)  ? 'date-released' : '';
 
-        return '';
     };
 
-    onSelectDate(ev: Date | null) {}
+    onSelectDate(ev: Date | null) {
+        this.releaseService
+        .getReleasesAtDate(Utils.formatDate(ev as Date))
+        .subscribe(res => {
+            this.releases = res.data;
+        });
+
+    }
 
     ngOnInit() {
         this.releaseService
@@ -55,6 +59,5 @@ export class AppComponent implements OnInit {
             this.daysReleased = res.data;
             this.isDatesReleasedAvailable = true;
         });
-
     }
 }

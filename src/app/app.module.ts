@@ -4,9 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
@@ -48,13 +50,15 @@ import { RepositoryBriefComponent } from './repository-brief/repository-brief.co
     AppRoutingModule,
     MatDividerModule,
     MatDatepickerModule,
-    MatNativeDateModule,
     MatChipsModule,
     MatIconModule,
     FlexLayoutModule,
     NgxFilesizeModule,
     MatBadgeModule,
     HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatExpansionModule,
     MatListModule,
