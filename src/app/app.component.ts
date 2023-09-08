@@ -17,10 +17,13 @@ import { RepositoryBriefDTO } from './repository';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    isDatesReleasedAvailable: boolean = false;
     releases: ReleaseDTO[] = [];
     repositories: RepositoryBriefDTO[] = [];
     selectedDate: Date = new Date();
+
+    // The flag for whether daysReleased ready. If not ready
+    // the mat-calendar will not be rendered.
+    isDatesReleasedAvailable: boolean = false;
     daysReleased: string[] = [];
     dayDisplayed: string = 'today';
 
@@ -29,6 +32,8 @@ export class AppComponent implements OnInit {
         private repositoryService: RepositoryService,
     ) {}
 
+    // It's for marking the dates release available, and the css style should be
+    // placed in ../style.css, if placed in app.component.css, it would not work.
     dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
         const index = this.daysReleased
         .findIndex(x => new Date(x).toLocaleDateString() === cellDate.toLocaleDateString());
