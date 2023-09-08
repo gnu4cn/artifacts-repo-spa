@@ -6,3 +6,9 @@ button.date-released {
   background: #7DAF8D;
   border-radius: 100%;
 }
+
+.material-icons {
+  position: relative;
+  top: 10px; /*Change this to adjust the icon*/
+  right: 5px;
+}

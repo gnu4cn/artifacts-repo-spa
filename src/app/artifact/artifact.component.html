@@ -10,9 +10,10 @@
       <mat-list-item *ngFor="let artifact of artifacts">
         <div *ngIf="artifact.url">
           <mat-icon fontIcon="done"></mat-icon>
-          <button mat-button color="{{ artifact.url.includes('_sdk') ? 'warn' : 'primary' }}">{{artifact.defconfig}}</button>
-            <small style="float: right;"><mat-icon fontIcon="folder_zip"></mat-icon>
-              <a href="{{artifact.url}}" mat-stroked-button color="{{ artifact.url.includes('_sdk') ? 'warn' : 'primary' }}">
+          <button mat-button color="{{ artifact.url.includes('_sdk') ? 'accent' : 'primary' }}">{{artifact.defconfig}}</button>
+            <small style="float: right;">
+              <mat-icon *ngIf="artifact.url.includes('_sdk')" fontIcon="api"></mat-icon>
+              <a href="{{artifact.url}}" mat-stroked-button color="{{ artifact.url.includes('_sdk') ? 'accent' : 'primary' }}">
                 {{ artifact.url.split('/').pop() | longFilename:30 }}
               </a>
               ({{ artifact.filesize | filesize }})
