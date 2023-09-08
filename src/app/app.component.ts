@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
             this.releases = res.data;
         });
 
+        this.selectedDate = (ev as Date);
     }
 
     ngOnInit() {
