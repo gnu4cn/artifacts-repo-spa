@@ -28,3 +28,8 @@ export interface ReleaseChannelDTO {
     channel: string;
     count: number;
 }
+
+export interface DaysReleasedDTO {
+    message: string;
+    data: string[];
+}

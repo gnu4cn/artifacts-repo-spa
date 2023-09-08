@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import {
+    MatCalendarCellClassFunction,
+    MatCalendar,
+} from '@angular/material/datepicker';
 
 import { ReleaseService } from './release.service';
 import { RepositoryService } from './repository.service';
 
 import Utils from './utils';
-import { ReleaseDTO } from './release';
+import { ReleaseDTO, DaysReleasedDTO } from './release';
 import { RepositoryBriefDTO } from './repository';
 
 @Component({
@@ -13,24 +18,43 @@ import { RepositoryBriefDTO } from './repository';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+    isDatesReleasedAvailable: boolean = false;
     releases: ReleaseDTO[] = [];
     repositories: RepositoryBriefDTO[] = [];
+    selectedDate: Date = new Date();
+    daysReleased: string[] = [];
 
     constructor(
         private releaseService: ReleaseService,
         private repositoryService: RepositoryService,
     ) {}
 
+    dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
+        const index = this.daysReleased
+        .findIndex(x => new Date(x).toLocaleDateString() === cellDate.toLocaleDateString());
+
+        if (view === 'month') {
+            return (cellDate.getDate() === 20) ? 'date-released' : '';
+        }
+
+        return '';
+    };
+
+    onSelectDate(ev: Date | null) {}
+
     ngOnInit() {
-        this.releaseService.getReleasesAtDate(Utils.formatDate())
+        this.releaseService
+        .getReleasesAtDate(Utils.formatDate())
         .subscribe(res => {
             this.releases = res.data;
         });
 
-        this.repositoryService.getRepositoriesBrief()
+        this.releaseService
+        .getDaysReleased()
         .subscribe(res => {
-            this.repositories = res.data;
-            console.log(this.repositories);
+            this.daysReleased = res.data;
+            this.isDatesReleasedAvailable = true;
         });
+
     }
 }

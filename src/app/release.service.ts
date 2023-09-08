@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { ReleasesDTO } from './release';
+import { ReleasesDTO, DaysReleasedDTO } from './release';
 import { environment } from '../environments/environment';
 
 @Injectable({
@@ -12,8 +12,17 @@ import { environment } from '../environments/environment';
 export class ReleaseService {
     constructor(private http: HttpClient) {}
 
+    getDaysReleased(): Observable<DaysReleasedDTO> {
+        let url = `${environment.API_ENDPOINT}/release/days`;
+        return this.http.get<DaysReleasedDTO>(url)
+        .pipe(
+            tap(_ => this.log('Fetched all days release avaible.')),
+            catchError(this.handleError<DaysReleasedDTO>('getDaysReleased'))
+        );
+    }
+
     getReleases(): Observable<ReleasesDTO> {
-        let url = environment.API_ENDPOINT + '/release';
+        let url = `${environment.API_ENDPOINT}/release`;
         return this.http.get<ReleasesDTO>(url)
         .pipe(
             tap(_ => this.log('Fetched all the releases.')),
