@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import {
     MatCalendarCellClassFunction,
-    MatCalendar,
 } from '@angular/material/datepicker';
 
 import { ReleaseService } from './release.service';
