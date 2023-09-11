@@ -53,8 +53,13 @@ export class AppComponent implements OnInit {
         });
 
         this.selectedDate = (ev as Date);
-        this.dayDisplayed = (ev as Date)
+
+        let ev_date = (ev as Date)
         .toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' });
+
+        this.dayDisplayed = (ev as Date).toLocaleDateString() === new Date().toLocaleDateString()
+        ? `today, ${ev_date}`
+        : ev_date;
     }
 
     ngOnInit() {
