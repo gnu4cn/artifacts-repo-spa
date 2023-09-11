@@ -20,11 +20,14 @@ export class AppComponent implements OnInit {
     releases: ReleaseDTO[] = [];
     repositories: RepositoryBriefDTO[] = [];
     selectedDate: Date = new Date();
+    calMinDate: Date = new Date();
+    calMaxDate: Date = new Date();
 
     // The flag for whether daysReleased ready. If not ready
     // the mat-calendar will not be rendered.
     isDatesReleasedAvailable: boolean = false;
     daysReleased: string[] = [];
+
     dayDisplayed: string = 'today';
 
     constructor(
@@ -64,8 +67,12 @@ export class AppComponent implements OnInit {
         this.releaseService
         .getDaysReleased()
         .subscribe(res => {
-            this.daysReleased = res.data;
+            this.daysReleased = res.data.sort((a, b) => (b > a ? -1 : 1));
             this.isDatesReleasedAvailable = true;
+
+            this.calMinDate = new Date(this.daysReleased[0]);
+            this.calMaxDate = new Date(this.daysReleased.at(-1) as string);
+
         });
     }
 }

@@ -4,6 +4,8 @@
     <mat-calendar class="release-calendar" [dateClass]="dateClass"
       *ngIf="isDatesReleasedAvailable"
       [selected]="selectedDate"
+      [minDate] = "calMinDate"
+      [maxDate] = "calMaxDate"
       (selectedChange)="onSelectDate($event)">
     </mat-calendar>
   </div>
