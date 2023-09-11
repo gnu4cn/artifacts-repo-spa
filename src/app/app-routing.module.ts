@@ -8,6 +8,7 @@ const routes: Routes = [
         path: '',
         component: AppComponent
     },
+    { path: 'org', loadChildren: () => import('./org/org.module').then(m => m.OrgModule) },
 ];
 
 @NgModule({
