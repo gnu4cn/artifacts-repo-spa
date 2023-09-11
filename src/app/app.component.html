@@ -1,5 +1,6 @@
-<div class="middle-container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
-  <div class="left-column" fxLayout="column" fxFlex="25">
+<div class="container" fxLayout="column">
+<div class="main" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px" fxFlex="1">
+  <div class="m-left" fxLayout="column" fxFlex="25">
     <h2>Release calendar</h2>
     <mat-calendar class="release-calendar" [dateClass]="dateClass"
       *ngIf="isDatesReleasedAvailable"
@@ -9,9 +10,11 @@
       (selectedChange)="onSelectDate($event)">
     </mat-calendar>
   </div>
-  <div class="right-column" fxLayout="column" fxLayoutGap="20px" fxFlex="65">
+  <div class="m-right" fxLayout="column" fxLayoutGap="20px" fxFlex="65">
     <h2>{{ releases.length > 1 ? 'Builds of the day' : 'Build of the day' }}, {{ dayDisplayed }}
     </h2>
     <app-release *ngFor="let rel of releases" [rel_dto]="rel"></app-release>
   </div>
 </div>
+<div class="footer">
+  <span>Created by Lenny, IT. </span></div>

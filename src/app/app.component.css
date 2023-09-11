@@ -1,3 +1,21 @@
+.container {
+  min-height: 100%;
+}
+
+.footer {
+  position: -webkit-sticky;
+  position: sticky;
+  color: white;
+  background-color: #A9A9A9;
+  height: 50px;
+  bottom: 0;
+}
+
+.footer span {
+  left: 30px;
+  position: absolute;
+}
+
 .release-calendar {
   position: -webkit-sticky;
   position: sticky;
