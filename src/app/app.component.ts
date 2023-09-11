@@ -8,8 +8,8 @@ import { ReleaseService } from './release.service';
 import { RepositoryService } from './repository.service';
 
 import Utils from './utils';
-import { ReleaseDTO, DaysReleasedDTO } from './release';
-import { RepositoryBriefDTO } from './repository';
+import { ReleaseDTO, DaysReleasedDTO } from './models/release';
+import { RepositoryBriefDTO } from './models/repository';
 
 @Component({
     selector: 'app-root',

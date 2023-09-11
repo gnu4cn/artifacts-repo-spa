@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-
-import { RepositoryBriefDTO } from '../repository';
+import { RepositoryBriefDTO } from '../models/repository';
 
 @Component({
     selector: 'app-repository-brief',

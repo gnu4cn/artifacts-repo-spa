@@ -5,7 +5,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
-import { Artifact } from '../artifact';
+import { Artifact } from '../models/artifact';
 
 @Component({
     selector: 'app-artifact',

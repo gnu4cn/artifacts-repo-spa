@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { ReleasesDTO, DaysReleasedDTO } from './release';
+import { ReleasesDTO, DaysReleasedDTO } from './models/release';
 import { environment } from '../environments/environment';
 
 @Injectable({

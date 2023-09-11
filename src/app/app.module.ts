@@ -67,4 +67,4 @@ import { RepositoryBriefComponent } from './repository-brief/repository-brief.co
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

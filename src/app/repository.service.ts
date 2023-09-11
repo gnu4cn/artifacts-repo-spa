@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 import {
     RepositoryBriefDTOResponse,
     RepositoriesBriefDTOResponse
-} from './repository';
+} from './models/repository';
 
 
 @Injectable({

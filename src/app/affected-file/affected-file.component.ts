@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AffectedFile } from '../affected_file';
+import { AffectedFile } from '../models/affected_file';
 
 @Component({
   selector: 'app-affected-file',

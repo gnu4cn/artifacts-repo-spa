@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ReleaseDTO } from '../release';
+import { ReleaseDTO } from '../models/release';
 
 @Component({
   selector: 'app-release',
