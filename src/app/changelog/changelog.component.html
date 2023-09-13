@@ -1,4 +1,5 @@
-<mat-list role="list" *ngIf="changelogs && changelogs.length>0">
+<mat-list class="list-paginator"
+	role="list" *ngIf="changelogs && changelogs.length>0">
 	<mat-list-item *ngFor="let changelog of changelogsCurrentPage">
 		<code>{{changelog.commit_id}}</code> <i>{{changelog.commit_comment}}</i> -
 		<em>by {{changelog.commited_by}}</em>
@@ -6,7 +7,6 @@
 </mat-list>
 
 <mat-paginator #paginator
-	class="list-paginator"
 	(page)="handlePageEvent($event)"
 	[length]="changelogs ? changelogs.length : 0"
 	[pageSize]="5"

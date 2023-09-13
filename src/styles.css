@@ -12,3 +12,8 @@ button.date-released {
   top: 10px; /*Change this to adjust the icon*/
   right: 5px;
 }
+
+.list-paginator {
+  display: block;
+  height: 256px;
+}
