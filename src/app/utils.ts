@@ -6,4 +6,18 @@ export default class Utils {
 
         return iso_date.slice(0, 10);
     }
+
+
+    static getItemsCurrentPage<Type>(
+        index: number,
+        items: Type[]
+    ): Type[] {
+        if (items.length <= 5)
+            return items;
+
+        if (index <= items.length/5)
+                return items.slice(index*5, (index+1)*5);
+        else
+            return items.slice(index*5,);
+    }
 }

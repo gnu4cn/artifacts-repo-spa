@@ -1,6 +1,19 @@
 <mat-list role="list" *ngIf="changelogs && changelogs.length>0">
-	<mat-list-item *ngFor="let changelog of changelogs">
+	<mat-list-item *ngFor="let changelog of changelogsCurrentPage">
 		<code>{{changelog.commit_id}}</code> <i>{{changelog.commit_comment}}</i> -
 		<em>by {{changelog.commited_by}}</em>
 	</mat-list-item>
 </mat-list>
+
+<mat-paginator #paginator
+	class="list-paginator"
+	(page)="handlePageEvent($event)"
+	[length]="changelogs ? changelogs.length : 0"
+	[pageSize]="5"
+	[disabled]="false"
+	[showFirstLastButtons]="true"
+	[pageSizeOptions]="[]"
+	[hidePageSize]="true"
+	[pageIndex]="pageIndex"
+	aria-label="Select page">
+</mat-paginator>

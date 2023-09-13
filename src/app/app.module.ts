@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
@@ -57,6 +58,7 @@ import { RepositoryBriefComponent } from './repository-brief/repository-brief.co
     MatNativeDateModule,
     MatDialogModule,
     MatExpansionModule,
+    MatPaginatorModule,
     MatListModule,
     MatButtonModule,
     MatCardModule,
