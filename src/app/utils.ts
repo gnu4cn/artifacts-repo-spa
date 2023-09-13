@@ -16,8 +16,8 @@ export default class Utils {
             return items;
 
         if (index <= items.length/5)
-                return items.slice(index*5, (index+1)*5);
-        else
-            return items.slice(index*5,);
+            return items.slice(index*5, (index+1)*5);
+
+        return items.slice(index*5,);
     }
 }
