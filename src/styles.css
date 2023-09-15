@@ -16,6 +16,8 @@ button.date-released {
 .list-paginator {
   display: block;
   height: 240px;
+  /*
   border-radius: 5px;
   border: double #32a1ce;
+  */
 }
