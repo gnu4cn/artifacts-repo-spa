@@ -5,6 +5,7 @@
     </mat-card-title>
     <mat-card-subtitle>
       {{rel_dto.release.released_at}}
+      <button mat-flat-button *ngIf="rel_dto.tag" color="accent">* {{rel_dto.tag.name}}</button>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

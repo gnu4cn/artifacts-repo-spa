@@ -1,5 +1,6 @@
 import { ReleaseChannelDTO } from './release';
 import { DefconfigDTO } from './artifact';
+import { Tag } from './tag';
 
 export interface Repository {
     id: number;
@@ -10,6 +11,7 @@ export interface Repository {
 export interface RepositoryBriefDTO {
     repo: Repository;
     release_channels: ReleaseChannelDTO[];
+    tags: Tag[] | null;
     defconfigs: DefconfigDTO[];
     days: string[];
 }

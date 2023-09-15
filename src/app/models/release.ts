@@ -2,6 +2,7 @@ import { Repository } from './repository';
 import { Artifact } from './artifact';
 import { AffectedFile } from './affected_file';
 import { Changelog } from './changelog';
+import { Tag } from './tag';
 
 export interface Release {
     id: number;
@@ -14,6 +15,7 @@ export interface Release {
 export interface ReleaseDTO {
     repository: Repository;
     release: Release;
+    tag: Tag | null;
     changelogs: Changelog[];
     artifacts: Artifact[];
     affected_files: AffectedFile[];
