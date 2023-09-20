@@ -31,6 +31,7 @@ import { LongFilenamePipe } from './long-filename.pipe';
 import { ReleaseOverviewComponent } from './release-overview/release-overview.component';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 import { RepositoryBriefComponent } from './repository-brief/repository-brief.component';
+import { OrgViewComponent } from './org-view/org-view.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RepositoryBriefComponent } from './repository-brief/repository-brief.co
     LongFilenamePipe,
     ReleaseOverviewComponent,
     BreadCrumbComponent,
-    RepositoryBriefComponent
+    RepositoryBriefComponent,
+    OrgViewComponent
   ],
   imports: [
     BrowserModule,

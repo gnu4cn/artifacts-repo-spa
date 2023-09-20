@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-
-import {
-    MatCalendarCellClassFunction,
-} from '@angular/material/datepicker';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { ReleaseService } from './release.service';
 import { RepositoryService } from './repository.service';
 
-import Utils from './utils';
 import { ReleaseDTO, DaysReleasedDTO } from './models/release';
 import { RepositoryBriefDTO } from './models/repository';
 
+import Utils from './utils';
+
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-org-view',
+  templateUrl: './org-view.component.html',
+  styleUrls: ['./org-view.component.css']
 })
-export class AppComponent implements OnInit {
+export class OrgViewComponent {
+    route: ActivatedRoute = inject(ActivatedRoute);
+    org: string = '';
     releases: ReleaseDTO[] = [];
+
     repositories: RepositoryBriefDTO[] = [];
     selectedDate: Date = new Date();
     calMinDate: Date = new Date();
@@ -33,7 +34,9 @@ export class AppComponent implements OnInit {
     constructor(
         private releaseService: ReleaseService,
         private repositoryService: RepositoryService,
-    ) {}
+    ) {
+        this.org = this.route.snapshot.params['org'];
+    }
 
     // It's for marking the dates release available, and the css style should be
     // placed in ../style.css, if placed in app.component.css, it would not work.
